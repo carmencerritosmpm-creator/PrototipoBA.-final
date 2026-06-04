@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tabot · Alta Fidelidad v5 · Banco Agrícola</title>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="shell">
+
+<!-- ═══ LEFT PANEL ═══ -->
+<aside class="panel left">
+  <div class="ph">
+    <div class="ph-row">
+      <div class="ph-logo">BA</div>
+      <div>
+        <div class="ph-title">Tabot · Alta Fidelidad v5</div>
+        <div class="ph-sub">Simulador manual · WhatsApp Business API<br>Editable en VS Code · Exportable a Figma</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll">
+    <div class="sec">Escenarios de prueba</div>
+    <button class="sc active" data-sc="rutina"><span class="ico">💳</span><span><div class="st">Andrea · Cliente frecuente</div><div class="sd">Saldo, EDC, pago TDC y atajos</div></span><span class="pill">A</span></button>
+    <button class="sc" data-sc="problema"><span class="ico">❓</span><span><div class="st">Roberto · Cargo no reconocido</div><div class="sd">Disputa, bloqueo y escalada</div></span><span class="pill">B</span></button>
+    <button class="sc" data-sc="urgente"><span class="ico">🚨</span><span><div class="st">Andrea · Emergencia</div><div class="sd">"perdí mi tarjeta" → bloqueo</div></span><span class="pill">B</span></button>
+    <button class="sc" data-sc="invitado"><span class="ico">🔎</span><span><div class="st">Carlos · Invitado</div><div class="sd">Catálogo, créditos y cita</div></span><span class="pill">C</span></button>
+    <button class="sc" data-sc="web"><span class="ico">🌐</span><span><div class="st">Desde el sitio web</div><div class="sd">Redirigido desde campaña o banner digital</div></span><span class="pill" style="background:#7c3aed">WEB</span></button>
+    <button class="sc" data-sc="app"><span class="ico">📱</span><span><div class="st">Desde la app móvil</div><div class="sd">Soporte directo desde banca móvil</div></span><span class="pill" style="background:#0ea5e9">APP</span></button>
+    <div class="sec">Palabras clave</div>
+    <div class="chips" id="kw-chips"></div>
+    <div class="cgrid">
+      <button class="cbtn" id="btn-reset">Reiniciar</button>
+      <button class="cbtn" id="btn-clear">Limpiar chat</button>
+      <button class="cbtn" id="btn-mo">Vista móvil</button>
+      <button class="cbtn" id="btn-start">Iniciar flujo</button>
+    </div>
+    <div class="note">
+      <b>Criterio UX:</b> el prototipo no avanza solo. El usuario escribe, confirma y presiona botones.
+      Cada pantalla mantiene <span class="kbd">Inicio</span>, <span class="kbd">Asesor</span> y
+      <span class="kbd">Salir</span>. <span class="kbd">volver</span> regresa a la pantalla anterior.
+    </div>
+  </div>
+</aside>
+
+<!-- ═══ CENTER: PHONE ═══ -->
+<main class="center">
+  <div class="phone" id="phone">
+    <div class="wa">
+      <div class="sbar">
+        <span id="clock">21:17</span>
+        <span style="display:flex;gap:5px;align-items:center">▮▮▮ ᯤ <span class="bat">75</span></span>
+      </div>
+      <div class="tbar">
+        <span class="back-ico">‹</span>
+        <div class="ba-av">BA</div>
+        <div class="bm">
+          <div class="bn">Banco Agrícola <span class="vf">✓</span></div>
+          <div class="bs" id="bot-status">Tabot · disponible 24/7</div>
+        </div>
+        <div class="ticons"><span>⌕</span><span>⋮</span></div>
+      </div>
+      <div class="emr" id="emr-banner">⚠️ MODO EMERGENCIA · Protección prioritaria</div>
+      <section class="chat" id="chat">
+        <div class="day"><span>Hoy</span></div>
+      </section>
+      <footer class="ibar">
+        <span class="iico mb-ico" id="mb-btn">☰</span>
+        <span class="iico">😊</span>
+        <div class="iwrap">
+          <input class="inp" id="user-inp" placeholder="Escribe un mensaje o palabra clave" autocomplete="off"/>
+        </div>
+        <button class="sbtn" id="send-btn" aria-label="Enviar">➤</button>
+      </footer>
+    </div>
+    <!-- Bottom Sheet -->
+    <div class="sbg" id="sheet-bg">
+      <div class="sheet">
+        <div class="grab"></div>
+        <div class="sh-top">
+          <span class="sh-x" id="sh-close">✕</span>
+          <div class="sh-title" id="sh-title">Selecciona aquí</div>
+        </div>
+        <div class="sh-list" id="sh-list"></div>
+        <div class="sh-foot">Toca para seleccionar una opción</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═══ RIGHT PANEL ═══ -->
+<aside class="panel right">
+  <div class="ph">
+    <div class="ph-title">Frontstage / Backstage</div>
+    <div class="ph-sub">Seguimiento técnico para evaluación UX y presentación final</div>
+  </div>
+  <div class="tabs">
+    <div class="tab active" data-tab="estado">Estado</div>
+    <div class="tab" data-tab="back">Backstage</div>
+    <div class="tab" data-tab="log">Log</div>
+  </div>
+  <div class="rb" id="right-body"></div>
+  <div class="fnote">
+    <b>Prueba rápida:</b> escribe <span class="kbd">saldo tarjeta</span>,
+    <span class="kbd">bloqueo TDC</span>, <span class="kbd">gestión LES</span>,
+    <span class="kbd">cita</span>, <span class="kbd">menú</span>,
+    <span class="kbd">volver</span> o <span class="kbd">asesor</span>.
+  </div>
+</aside>
+
+</div><!-- /shell -->
+<script src="js/app.js"></script>
+</body>
+</html>
